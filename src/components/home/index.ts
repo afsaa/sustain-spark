@@ -1,2 +1,3 @@
-import Hero from './Hero'
-export { Hero }
+import { Description } from './Description'
+import { Hero } from './Hero'
+export { Description, Hero }
