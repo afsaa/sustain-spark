@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
 
-export default function Error({ error, reset }: GlobalErrorProps) {
+export default function GlobalError({ error, reset }: GlobalErrorProps) {
   useEffect(() => {
     console.error(error.message)
   }, [error])
