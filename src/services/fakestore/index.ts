@@ -2,7 +2,11 @@ import { fakeStoreUrls } from './urls'
 
 export const getProducts = async () => {
   try {
-    const response = await fetch(fakeStoreUrls.products)
+    const response = await fetch(fakeStoreUrls.products, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     return response.json()
   } catch (error) {
     console.error(error)
