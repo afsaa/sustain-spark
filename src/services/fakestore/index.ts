@@ -13,9 +13,13 @@ export const getProducts = async () => {
   }
 }
 
-export const getProduct = async (id: number) => {
+export const getProduct = async (id: string) => {
   try {
-    const response = await fetch(fakeStoreUrls.product + id)
+    const response = await fetch(fakeStoreUrls.product(id), {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     return response.json()
   } catch (error) {
     console.error(error)
