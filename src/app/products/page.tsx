@@ -1,3 +1,5 @@
+import { ProductCard } from '@/components/products/ProductCard'
+
 export default async function ProductsPage() {
   const response = await fetch('http://localhost:3000/api', {
     headers: {
@@ -7,15 +9,13 @@ export default async function ProductsPage() {
   })
   const products = await response.json()
   return (
-    <div>
-      <h1>Products</h1>
-      {products?.map((product: Product) => (
-        <div key={product.id}>
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-        </div>
-      ))}
-    </div>
+    <section>
+      <h1 className="mb-4 text-3xl">Products</h1>
+      <div className="grid grid-cols-3 grid-flow-row justify-items-stretch gap-4">
+        {products?.map((product: Product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
+      </div>
+    </section>
   )
 }
