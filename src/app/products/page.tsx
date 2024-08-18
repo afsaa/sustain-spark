@@ -9,9 +9,9 @@ export default async function ProductsPage() {
   })
   const products = await response.json()
   return (
-    <section>
+    <section className="m-5">
       <h1 className="mb-4 text-3xl">Products</h1>
-      <div className="grid grid-cols-3 grid-flow-row justify-items-stretch gap-4">
+      <div className="grid grid-cols-4 grid-flow-row justify-items-stretch gap-8">
         {products?.map((product: Product) => (
           <ProductCard key={product.id} {...product} />
         ))}
